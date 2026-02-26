@@ -24,8 +24,8 @@ class TodoController extends Controller
 
     public function create()
     {
-    return view('todo.create');
-    //dd('新規作成画面のルート実行！');
+        return view('todo.create');
+        //dd('新規作成画面のルート実行！');
     }
 
 
@@ -45,6 +45,14 @@ class TodoController extends Controller
     {
         $todo = $this->todo->find($id);
         return view('todo.show', ['todo' => $todo]);
+    }
+
+
+    public function edit($id)
+    {
+    // TODO: 編集対象のレコードの情報を持つTodoモデルのインスタンスを取得
+    $todo =  $this->todo->find($id);
+    return view('todo.edit', ['todo' => $todo]);
     }
 
 }
