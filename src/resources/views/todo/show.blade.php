@@ -13,24 +13,17 @@
 
 <body>
     <div id="app">
-        @extends('layouts.base') <!-- 追記 -->
-        @section('content') <!-- 追記 -->
+        @extends('layouts.base')
+        @section('content')
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <p class="text-left">
-                        <a class="btn btn-success" href="{{ route('todo.create') }}">ToDoを追加</a>
-                    </p>
                     <div class="card">
                         <div class="card-header">
-                        ToDo一覧
+                            ToDo詳細
                         </div>
-                        <div class="list-group list-group-flush">
-                            @foreach ($todos as $todo)
-                            <div class="d-flex align-items-center p-2">
-                                <span class="col-9">{{ $todo->content }}</span>
-                                <a href="{{ route('todo.show', $todo->id) }}" class="btn btn-info ml-3">詳細</a>
-                            </div>
-                            @endforeach
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $todo->content }}</h5>
+                            <p class="card-text">作成日時：{{ $todo->created_at }}</p>
                         </div>
                     </div>
                 </div>
