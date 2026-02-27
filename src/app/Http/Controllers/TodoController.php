@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\TodoRequest; // 追加
 use App\Todo;
 
@@ -67,6 +68,17 @@ class TodoController extends Controller
     $todo->fill($inputs)->save();
 
     return redirect()->route('todo.show', $todo->id); // 追記
+    }
+
+
+    public function delete(Request $request, $id)
+    {
+        //dd('削除のルート実行！');
+    $todo = $this->todo->find($id);
+    $todo->delete();
+
+    return redirect()->route('todo.index');
+    //dd('削除のルート実行！');
     }
 }
 

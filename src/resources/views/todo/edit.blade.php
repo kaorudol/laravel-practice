@@ -20,7 +20,7 @@
                     <div class="card">
                         <div class="card-header">ToDo編集</div>
                             <div class="card-body">
-                                <form method="POST" action="{{ route('todo.update', $todo->id) }}">
+                                <form method="POST" action="{{ route('todo.update', ['id' =>$todo->id]) }}">
                                 @csrf
                                 @method('PUT')
                                     <div class="form-group row">
